@@ -17,7 +17,7 @@
     --notification--special: #d9bb23;
     --notification--special--border: #4a3f0e;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Overlock+SC&family=Overlock:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @font-face{
     font-family: Typewriter;
     src: url("../fonts/MonospaceTypewriter.ttf") format("ttf"),
@@ -129,7 +129,7 @@ img.inline{
 }
 
 .resource-name{
-    font-family: "Typewriter", sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 .flipped-v{
@@ -185,7 +185,7 @@ div.layer-navigation button{
     font-size: 2.5rem;
     font-weight: bold;
     position: relative;
-    font-family: "Typewriter", sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 div.layer-navigation button:hover{
@@ -203,14 +203,14 @@ div.layer-navigation button .ordinal{
 /*Body and Main Styles*/
 
 body{
-    font-family: "Typewriter", monospace;
+    font-family: "Overlock SC", monospace;
     background-color: var(--background-body);
     color: var(--color-contrast);
     overflow-x: hidden;
 }
 
 button{
-    font-family: "Typewriter", monospace;
+    font-family: "Overlock SC", monospace;
     border-radius: 2px;
     background-color: var(--color-base);
     color: var(--color-contrast);
