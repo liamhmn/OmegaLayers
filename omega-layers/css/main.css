@@ -203,14 +203,14 @@ div.layer-navigation button .ordinal{
 /*Body and Main Styles*/
 
 body{
-    font-family: "Overlock SC", monospace;
+    font-family: "Overlock SC", serif;
     background-color: var(--background-body);
     color: var(--color-contrast);
     overflow-x: hidden;
 }
 
 button{
-    font-family: "Overlock SC", monospace;
+    font-family: "Overlock SC", serif;
     border-radius: 2px;
     background-color: var(--color-base);
     color: var(--color-contrast);
