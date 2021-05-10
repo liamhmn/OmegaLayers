@@ -112,7 +112,7 @@ var game = {
         new Achievement("Persistence is Key", "Make layer α non-volatile", '<img src="images/save.svg" alt="S">', () => game.volatility.layerVolatility.level.gt(0)),
         new Achievement("Born Anew", "ReStack for the first time!", "<img alt=\"LC\" class=\"inline\" src=\"images/layercoin.svg\"/>", () => game.restackLayer.timesReset > 0),
         new Achievement("Was all this a dream?!", "Purchase the Meta Upgrade", "<img alt=\"LC\" class=\"inline\" src=\"images/layercoin.svg\"/>", () => game.restackLayer.metaUpgrade.level.gt(0)),
-        new Achievement("<i>THIS WAS ALL A DREAM, WASN'T IT?</i>", "Go Meta!", "<img alt=\"LC\" class=\"inline\" src=\"images/layercoin.svg\"/>", () => game.metaLayer.active),
+        new Achievement("THIS WAS ALL A DREAM, WASN'T IT?!", "Go Meta!", "<img alt=\"LC\" class=\"inline\" src=\"images/layercoin.svg\"/>", () => game.metaLayer.active),
         new Achievement("Now we're talkin'!", "Advance 1 layer per second", "»1", () => game.metaLayer.getLayersPS().gte(1)),
         new Achievement("Going fast!", "Advance 10 layers per second", "»2", () => game.metaLayer.getLayersPS().gte(10)),
         new Achievement("Okay, this is getting crazy...", "Advance 1,000 layers per second", "»3", () => game.metaLayer.getLayersPS().gte(1000)),
