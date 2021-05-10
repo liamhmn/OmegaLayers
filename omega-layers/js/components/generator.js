@@ -15,8 +15,8 @@ Vue.component("generator",{
     },
     template: `<tr>
 <td>Generator <layer-colored-text :layerid="generator.layer.layer" v-html="generator.name"></layer-colored-text> <span style="font-size: 70%;">x {{formatNumber(generator.getProductionMulti(), 2, 0)}}</span></td>
-<td>{{formatNumber(generator.amount, 2, 0, 1e6)}} ({{formatNumber(generator.bought, 3, 0, 1e9)}})</td>
-<td><button :disabled="!canAfford" @click="generator.buy()">{{formatNumber(generator.currentPrice(), 2, 0, 1e6)}} <resource-name :layerid="generator.layer.layer"></resource-name></button></td>
-<td><button :disabled="!canAfford10" @click="generator.buyUntil10()">{{formatNumber(generator.getPriceUntil10(), 2, 0, 1e6)}} <resource-name :layerid="generator.layer.layer"></resource-name></button></td>
+<td>{{formatNumber(generator.amount, 3, 0, 1e15)}} ({{formatNumber(generator.bought, 3, 0, 1e15)}})</td>
+<td><button :disabled="!canAfford" @click="generator.buy()">{{formatNumber(generator.currentPrice(), 3, 0, 1e15)}} <resource-name :layerid="generator.layer.layer"></resource-name></button></td>
+<td><button :disabled="!canAfford10" @click="generator.buyUntil10()">{{formatNumber(generator.getPriceUntil10(), 3, 0, 1e15)}} <resource-name :layerid="generator.layer.layer"></resource-name></button></td>
 </tr>`
 });
