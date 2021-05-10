@@ -5,6 +5,7 @@ Vue.component("guide-tab", {
         epsilonUnlocked: () => game.layers.length >= 5 || game.metaLayer.active,
         alephUnlocked: () => game.alephLayer.isUnlocked() || game.metaLayer.active,
         restackUnlocked: () => game.restackLayer.isUnlocked() || game.metaLayer.active,
+        metaUpgradeUnlocked: () => game.restackLayer.metaUpgrade.level.gt(0) || game.metaLayer.active,
         metaUnlocked: () => game.metaLayer.active
     },
     methods: {
@@ -87,7 +88,12 @@ Vue.component("guide-tab", {
         <template v-slot:title>ReStack</template>
         <template v-slot:text>After unlocking &kappa;, you are able to ReStack. This resets all progress so far in exchange for Layer Coins, which can be spent
         on powerful upgrades. If you feel like you took the wrong path on the permanent upgrades, you can respec. You will get all spent Layer Coins back, but you will perform
-        a ReStack without any rewards. ReStack yields 10x more Layer Coins for every new Layer unlocked after &kappa;.
+        a ReStack without any rewards. ReStack yields 4x more Layer Coins for every new Layer unlocked after &kappa;.
+        </template>
+    </guide-item>
+    <guide-item v-if="restackUnlocked">
+        <template v-slot:title>Meta Prerequisites</template>
+        <template v-slot:text>You have to go Μ in order to be able to go Meta. (That means you must reach Layer 36.)
         </template>
     </guide-item>
     <guide-item v-if="metaUnlocked">
