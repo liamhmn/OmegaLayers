@@ -21,8 +21,8 @@ Vue.component("aleph-layer", {
     },
     template: `<div class="aleph-layer">
 <div class="resource">
-    <p>You have {{formatNumber(aleph.aleph, 2, 2, 1e9)}} <span class="aleph">&aleph;</span></p>
-    <p>You get {{formatNumber(aleph.getAlephGain(), 2, 2, 1e9)}} <span class="aleph">&aleph;</span>/s</p>
+    <p>You have {{formatNumber(aleph.aleph, 3, 2, 1e15)}} <span class="aleph">&aleph;</span></p>
+    <p>You get {{formatNumber(aleph.getAlephGain(), 3, 2, 1e15)}} <span class="aleph">&aleph;</span>/s</p>
 </div>
 <div class="boosts">
     <div v-if="canProduceAleph">
