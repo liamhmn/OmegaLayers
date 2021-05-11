@@ -17,7 +17,7 @@
     --notification--special: #d9bb23;
     --notification--special--border: #4a3f0e;
 }
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Overlock+SC|Overlock:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Overlock+SC|Overlock:400,400i,700,700i');
 body {
     font-family: "Overlock SC", serif;
 }
