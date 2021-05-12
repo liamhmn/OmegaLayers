@@ -7,44 +7,44 @@ class ReStackLayer
         this.timesReset = 0;
         this.permUpgrades = {
             prestigeGains: new RestackLayerUpgrade("All Prestige gains are higher",
-                level => this.getPermUpgradeCost(),
+                level => Decimal.pow(200, level),
                 level => Decimal.pow(16, level), {
                     maxLevel: 4
                 }),
             layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time",
-                level => this.getPermUpgradeCost(),
+                level => Decimal.pow(1000, level),
                 level => Math.min(2, this.timeSpent / 28800) * 3 * level.toNumber(), {
                     maxLevel: 2,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
                 }),
             upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)",
-                level => this.getPermUpgradeCost(),
+                level => new Decimal(1e5),
                 level => new Decimal(1).add(level.mul(2)), {
                     maxLevel: 1,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
             powerGenerators: new RestackLayerUpgrade("All Power Generators are stronger",
-                level => this.getPermUpgradeCost(),
+                level => Decimal.pow(1024, level),
                 level => new Decimal(1).add(level.mul(0.15)), {
                     maxLevel: 3,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
             aleph: new RestackLayerUpgrade("\"Increase your Aleph gain\" Upgrade scales better",
-                level => this.getPermUpgradeCost(),
+                level => Decimal.pow(1e6, level),
                 level => 0.005 * level.toNumber(), {
-                    maxLevel: 1,
+                    maxLevel: 2,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3, "+")
                 }),
             layerExponentialBoostFactor: new RestackLayerUpgrade("The Layer Exponential Factor is higher",
-                level => this.getPermUpgradeCost(),
+                level => Decimal.pow(1e8, level),
                 level => level.toNumber(), {
                     maxLevel: 4,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "+")
                 })
         };
         this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second",
-            level => new Decimal(1e20),
-            level => 1 + 0.1 * level.toNumber(),{
+            level => level.lt(3) ? new Decimal([1e10, 1e15, 1e25, 1e40][level.toNumber()]) : Decimal.dInf,
+            level => [1, 1.004, 1.01, 1.05][level.toNumber()],{
                 maxLevel: 1
             });
         this.upgradeTree = [
