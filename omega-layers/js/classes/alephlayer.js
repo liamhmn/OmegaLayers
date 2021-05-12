@@ -40,7 +40,7 @@ class AlephLayer
                 level => Utils.createValueDilation(Decimal.pow(1e30, level).mul(1e100), 0.005, new Decimal("1e650")),
                 level => Decimal.pow(1.6, level)),
             layerExponentialBoost: new AlephUpgrade("Increase the exponential difference of boosts between layers, resulting in a large boost!",
-                level => level.lt(2) ? new Decimal([1e125, 1e175, 1e220, 1e260, 1e290][level.toNumber()]) : Decimal.dInf,
+                level => level.lt(4) ? new Decimal([1e125, 1e175, 1e220, 1e260, 1e290][level.toNumber()]) : Decimal.dInf,
                 level => [22, 25, 27, 30, 33][level.toNumber()], {
                     maxLevel: 4,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "")
