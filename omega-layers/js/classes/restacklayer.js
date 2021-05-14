@@ -12,7 +12,7 @@ class ReStackLayer
                     maxLevel: 4
                 }),
             layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time",
-                level => Decimal.pow(1000, level),
+                level => Decimal.pow(1000, level+1),
                 level => Math.min(2, this.timeSpent / 28800) * 3 * level.toNumber(), {
                     maxLevel: 2,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
@@ -30,13 +30,13 @@ class ReStackLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
             aleph: new RestackLayerUpgrade("\"Increase your Aleph gain\" Upgrade scales better",
-                level => Decimal.pow(1e6, level),
+                level => Decimal.pow(1e6, level+1),
                 level => 0.005 * level.toNumber(), {
                     maxLevel: 2,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3, "+")
                 }),
             layerExponentialBoostFactor: new RestackLayerUpgrade("The Layer Exponential Factor is higher",
-                level => Decimal.pow(1e8, level),
+                level => Decimal.pow(1e8, level+1),
                 level => level.toNumber(), {
                     maxLevel: 4,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0, "+")
