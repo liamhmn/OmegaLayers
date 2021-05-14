@@ -24,7 +24,7 @@ class ReStackLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
             powerGenerators: new RestackLayerUpgrade("All Power Generators are stronger",
-                level => Decimal.pow(1024, level),
+                level => Decimal.pow(1024, level+1),
                 level => new Decimal(1).add(level.mul(0.15)), {
                     maxLevel: 3,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
