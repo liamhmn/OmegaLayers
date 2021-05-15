@@ -45,7 +45,7 @@ class ReStackLayer
         this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second",
             level => level.lt(3) ? new Decimal([1e10, 1e15, 1e25, 1e40][level.toNumber()]) : Decimal.dInf,
             level => [1, 1.004, 1.01, 1.05][level.toNumber()],{
-                maxLevel: 1
+                maxLevel: 3
             });
         this.upgradeTree = [
             [
@@ -148,7 +148,7 @@ class ReStackLayer
 
     getPermUpgradeCost()
     {
-        return Decimal.pow(16, Object.values(this.permUpgrades).filter(u => u.level.gt(0)).length).floor();
+        return Decimal.pow(2, Object.values(this.permUpgrades).filter(u => u.level.gt(0)).length).floor();
     }
 
     getRestackGain()
@@ -164,19 +164,36 @@ class ReStackLayer
 
     respecPermUpgrades()
     {
-        if(game.settings.confirmations && (!confirm("Are you sure you want to respec?") || this.allPermUpgradesBought()))
+        if(game.settings.confirmations && (!confirm("Are you sure you want to respec? This will give you all spent Layer Coins back, but you won't receive any new rewards.") || this.allPermUpgradesBought()))
         {
             return;
         }
         this.restack(false);
-        for(let k of Object.keys(this.permUpgrades))
-        {
-            if(this.permUpgrades[k].level.gt(0))
-            {
-                this.permUpgrades[k].level = new Decimal(0);
-                this.layerCoins = this.layerCoins.add(this.getPermUpgradeCost());
-            }
-        }
+
+        let lcGain = new Decimal(0);
+
+        if (this.permUpgrades.prestigeGains.level.gt(0)) {lcGain = lcGain.add(1);}
+        if (this.permUpgrades.prestigeGains.level.gt(1)) {lcGain = lcGain.add(200);}
+        if (this.permUpgrades.prestigeGains.level.gt(2)) {lcGain = lcGain.add(40000);}
+        if (this.permUpgrades.prestigeGains.level.gt(3)) {lcGain = lcGain.add(8000000);}
+
+        if (this.permUpgrades.layerExponentialBoostFactorTime.level.gt(0)) {lcGain = lcGain.add(1000);}
+        if (this.permUpgrades.layerExponentialBoostFactorTime.level.gt(1)) {lcGain = lcGain.add(1000000);}
+
+        if (this.permUpgrades.upgradeEffects.level.gt(0)) {lcGain = lcGain.add(1e5);}
+
+        if (this.permUpgrades.powerGenerators.level.gt(0)) {lcGain = lcGain.add(1024);}
+        if (this.permUpgrades.powerGenerators.level.gt(1)) {lcGain = lcGain.add(1048576);}
+        if (this.permUpgrades.powerGenerators.level.gt(2)) {lcGain = lcGain.add(1073741824);}
+
+        if (this.permUpgrades.aleph.level.gt(0)) {lcGain = lcGain.add(1e6);}
+        if (this.permUpgrades.aleph.level.gt(1)) {lcGain = lcGain.add(1e12);}
+
+        if (this.permUpgrades.layerExponentialBoostFactor.level.gt(0)) {lcGain = lcGain.add(1);}
+        if (this.permUpgrades.layerExponentialBoostFactor.level.gt(1)) {lcGain = lcGain.add(1e8);}
+        if (this.permUpgrades.layerExponentialBoostFactor.level.gt(2)) {lcGain = lcGain.add(1e16);}
+        if (this.permUpgrades.layerExponentialBoostFactor.level.gt(3)) {lcGain = lcGain.add(1e24);}
+        this.layerCoins = this.layerCoins.add(lcGain.toNumber());
     }
 
     respecUpgradeTree()
