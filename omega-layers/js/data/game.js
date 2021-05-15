@@ -97,7 +97,6 @@ var game = {
         new Achievement("How?!", "Reach 1e10,000,000,000,000,000 α", "α 14", () => game.layers[0] && game.layers[0].resource.gt("1ee16")),
         new Achievement("2 tetrated to 3", "Reach 1ee19.35 α", "α 15", () => game.layers[0] && game.layers[0].resource.gt("1ee19.35")),
         new Achievement("Bruh...", "Reach 1ee50 α", "α 16", () => game.layers[0] && game.layers[0].resource.gt("1ee50")),
-        new Achievement("Googolplex", "Reach 1ee100 α", "α 17", () => game.layers[0] && game.layers[0].resource.gt("1ee100")),
         new Achievement("Gοnε βετα", "Go β for the first time", "β", () => game.layers[1] && game.layers[1].timesReset > 0),
         new Achievement("Beta-10", "Go β 10 times", "β-10", () => game.layers[1] && game.layers[1].timesReset >= 10),
         new Achievement("Beta Millionaire", "Reach 1,000,000 β", "β 1", () => game.layers[1] && game.layers[1].resource.gte(1e6)),
