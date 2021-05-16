@@ -154,6 +154,9 @@ class ReStackLayer
     getRestackGain()
     {
         let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
+        if (game.metaLayer.active) {
+            return l >= 9 ? Decimal.pow(20, l.sub(9).floor()) : new Decimal(0);
+        }
         return l >= 9 ? Decimal.pow(4, l.sub(9).floor()) : new Decimal(0);
     }
 
