@@ -11,7 +11,7 @@ Vue.component("meta-layer", {
     computed: {
         showLayersPS: function()
         {
-            return this.metaLayer.getLayersPS().gte(0.5);
+            return this.metaLayer.getLayersPS().gte(0.1);
         },
         showPowerers: function()
         {
