@@ -66,7 +66,7 @@ class ReStackLayer
                 new RestackLayerUpgrade("Resource Multiplier Upgrades are stronger based on time spent this ReStack",
                 level => new Decimal(1e50),
                 level => new Decimal(1).add(Decimal.pow(2, level).sub(1).mul(this.timeSpent / 1000)),{
-                        maxLevel: 1,
+                        maxLevel: 5,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                     })
             ],
