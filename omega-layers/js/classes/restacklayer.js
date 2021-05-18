@@ -50,9 +50,9 @@ class ReStackLayer
         this.upgradeTree = [
             [
                 new RestackLayerUpgrade("Increase the Resource Multiplier",
-                    level => new Decimal(1e24),
+                    level => Decimal.pow(1e24, level + 1),
                     level => Decimal.pow(2, level),{
-                        maxLevel: 1,
+                        maxLevel: 50,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(0, "^")
                     })
             ],
