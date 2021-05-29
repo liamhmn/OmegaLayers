@@ -41,8 +41,8 @@ class Pickaxe
     {
         avgValue = avgValue !== undefined ? avgValue : 0.5;
         gems = new Decimal(gems);
-        let powMultiplier = (gems.sub(1)).div(5).add(1);
-        let qualityBonus = new Decimal(gems / 20 * (avg ? avgValue : Math.random()));
+        let powMultiplier = (gems.sub(1)).div(.05).add(10);
+        let qualityBonus = new Decimal(gems / 2 * (avg ? avgValue : Math.random()));
         let bonus = avg ? 0 : applyUpgrade(game.upgrades.blacksmithBonus).toNumber();
         let powBonus = new Decimal(1 + 0.15 * bonus);
 
