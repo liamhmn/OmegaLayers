@@ -135,7 +135,7 @@ class Upgrade
         let p = prefix !== undefined ? prefix : "$";
         if(this.level < this.getMaxLevel())
         {
-            return p + (p.length || p.length > 0 ? " " : "") + functions.formatNumber(this.currentPrice(), 2, 1e12, 0) + " " + s;
+            return p + (p.length || p.length > 0 ? " " : "") + functions.formatNumber(this.currentPrice(), .001, 1e12, 0) + " " + s;
         }
         else
         {
@@ -149,7 +149,7 @@ class Upgrade
         {
             return "x" + this.getEffect(this.level);
         }
-        return "x" + this.getEffect(this.level) + " → " + "x" + this.getEffect(this.level + 1);
+        return "x" + this.getEffect(this.level) + " → " + "x" + this.getEffect(this.level + 10);
     }
 
     getLevelDisplay()
